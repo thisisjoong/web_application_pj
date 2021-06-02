@@ -40,7 +40,7 @@ def index():
 #         #json2html.convert = (json = json_data)
 #     return render_template('second.html', title="page", jsonfile=json.dumps(json_data), data=json_data)
 
-@app.route("/third", methods=['GET'])
+@app.route("/third")
 def history():
 	conn = sqlite3.connect('mydb.db')
 	conn.row_factory=sqlite3.Row
@@ -49,7 +49,7 @@ def history():
 	rows = c.fetchall(); 
 	return render_template("third.html",rows = rows )
 
-@app.route("/chart",methods=['GET'])
+@app.route("/chart")
 def today_chart():
     now= date.today()
     now_str = str(now)
