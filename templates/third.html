@@ -1,0 +1,23 @@
+
+    <h1>Mosquito Data</h1>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Water</th>
+            <th>House</th>
+            <th>Park</th>
+        </tr>          
+        {% for row in rows %}
+        <tr>
+                <td>{{row[0]}}</td>
+                        
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+            </tr>
+         {% endfor %}
+
+
+
+
+

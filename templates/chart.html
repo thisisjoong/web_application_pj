@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모기활동지수</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  </body>
+</html>
+<style>
+        #myChart{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div > h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div data-v-365c20ab class= 'chart-view'>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var mixedChart = new Chart(ctx, {
+        data: {
+        datasets: [{
+            labels: ["{{data['MosquitoStatus']['row'][0]['MOSQUITO_VALUE_WATER']}}", "{{data['MosquitoStatus']['row'][0]['MOSQUITO_VALUE_HOUSE']}}", "{{data['MosquitoStatus']['row'][0]['MOSQUITO_VALUE_PARK']}}"],
+            type: 'bar',
+            label: 'Bar Dataset',
+            data: [30, 40, 50],
+            backgroundColor: [
+                'rgb(0,191,255)',  //water
+                'rgb(255,69,0)', //house
+                'rgb(124,252,0)'] //forest
+        }, {
+            type: 'line',
+            label: '주의',
+            data: [59.9, 59.9, 59.9],
+            backgroundColor: ['rgb(255, 0, 0)'],
+            borderColor: ['rgb(255, 0, 0)']
+        },
+        {
+            type: 'line',
+            label: '관심',
+            data: [30, 30, 30],
+            backgroundColor: ['rgb(255, 253, 0)'],
+            borderColor: ['rgb(255, 253, 0)']
+        }],
+        labels: ['수변', '주거지', '공원']
+    }
+});
+</script>
+</div>
+</body>
+</html>
